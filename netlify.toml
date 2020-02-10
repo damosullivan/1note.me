@@ -16,3 +16,8 @@
   # Directory with the serverless Lambda functions to deploy to AWS.
   functions = "./functions"
 
+
+[[redirects]]
+  from = "/l/:key"
+  to = "/.netlify/functions/open?key=:key"
+  status = 200

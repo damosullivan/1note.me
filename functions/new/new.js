@@ -4,7 +4,7 @@ exports.handler = async (event, context) => {
     if (event.httpMethod !== "POST") {
       // error
     }
-    const body = event.body.JSON;
+    const body = event.body;
     const link = body.link
     
     

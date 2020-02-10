@@ -1,7 +1,7 @@
 // Docs on event and context https://www.netlify.com/docs/functions/#the-handler-method
 exports.handler = async (event, context) => {
   try {
-    const key = event.queryStringParameters.key || 'test'
+    const key = event.queryStringParameters.l || 'no get param'
     return {
       statusCode: 302, // Found - https://developer.mozilla.org/en-US/docs/Web/HTTP/Status/302
       headers: {

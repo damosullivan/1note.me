@@ -20,5 +20,5 @@
 [[redirects]]
   from = "/"
   to = "/.netlify/functions/open"
-  query = {key = ":key"}
+  query = {l = ":l"}
   status = 200

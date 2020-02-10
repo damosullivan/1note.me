@@ -13,3 +13,7 @@ netlify functions:create
 ```
 netlify functions:invoke open
 ```
+
+https://1noteme.netlify.com/.netlify/functions/open?key=hi
+https://1noteme.netlify.com/?l=damien
+https://1noteme.netlify.com/.netlify/functions/new

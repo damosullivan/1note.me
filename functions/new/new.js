@@ -4,11 +4,13 @@ exports.handler = async (event, context) => {
     if (event.httpMethod !== "POST") {
       // error
     }
-    const body = event.body;
-    const link = body.link
+    const body = JSON.parse(event.body);
+    const link = body.link;
+
+    // if not json, allow text
+
     
-    
-    
+
     return {
       statusCode: 200,
       body: JSON.stringify({ message: `Your link: '${link}'` })

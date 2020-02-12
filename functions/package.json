@@ -1,15 +1,15 @@
 {
-  "name": "new",
+  "name": "functions",
   "version": "1.0.0",
   "description": "",
-  "main": "new.js",
+  "main": "",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "author": "",
   "license": "ISC",
   "dependencies": {
-    "aws-sdk": "^2.615.0",
+    "aws-sdk": "^2.617.0",
     "shortid": "^2.2.15"
   }
 }

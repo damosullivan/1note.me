@@ -6,10 +6,17 @@ const s3 = new S3({
 });
 
 exports.handler = async (event, context) => {
-  const key = event.queryStringParameters.l || 'no get param'
+  const key = event.queryStringParameters.l
+
+  if (!key) {
+    return {
+      statusCode: 400,
+      body: 'no link parameter `l` provided'
+    }
+  }
 
   var params = {
-    Bucket: "1note.me", 
+    Bucket: '1note.me', 
     Key: key
   }
 
@@ -19,7 +26,7 @@ exports.handler = async (event, context) => {
       return {
         statusCode: 302,
         headers: {
-          Location: 'https://google.com/search?q=' + link
+          Location: decodeURIComponent(link)
         },
         body: link
       }
@@ -42,5 +49,3 @@ const s3GetObject = async (s3, params) => {
     });
   });
 }
-
-// http://localhost:8888/.netlify/functions/open?l=9BP6hs2E

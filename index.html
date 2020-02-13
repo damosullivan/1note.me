@@ -20,7 +20,12 @@
 
             <h1>1Note Me</h1>
             <h2>A usable sharable OneNote link</h2>
-
+            <div>
+                <form action="/.netlify/functions/new" method="POST">
+                    <textarea id="link" name="link" rows="2" cols="100"  ></textarea>
+                    <button>Submit</button>
+                </form>
+            </div>
         </div>
         
         <script src="" async defer></script>

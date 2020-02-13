@@ -7,35 +7,34 @@ const s3 = new S3({
 });
 // Docs on event and context https://www.netlify.com/docs/functions/#the-handler-method
 exports.handler = async (event, context) => {
-  try {
-    const link = event.queryStringParameters.link || 'no get param'
+  const link = event.queryStringParameters.link || 'no get param'
 
-    if (event.httpMethod === "POST") {
-      const body = JSON.parse(event.body);
-      link = body.link;
-    }
+  if (event.httpMethod === "POST") {
+    const body = JSON.parse(event.body);
+    link = body.link;
+  }
 
-    // if (event.httpMethod !== "POST") {
-    //   // TODO: error, remove GET
-    // }
+  // if (event.httpMethod !== "POST") {
+  //   // TODO: error, remove GET
+  // }
 
-    const id = shortid.generate();
-    const result = `https://1note.me?l=${id}`;
-    const params = {
-      Body: link,
-      Bucket: "1note.me",
-      Key: id
-    };
+  const id = shortid.generate();
+  const result = `https://1note.me?l=${id}`;
+  const params = {
+    Bucket: "1note.me",
+    Key: id,
+    Body: link
+  };
 
-    await s3PutObject(s3, params);
-
-    return {
+  return s3PutObject(s3, params)
+    .then(res => { return {
       statusCode: 200,
       body: result
-    }
-  } catch (err) {
-    return { statusCode: 500, body: err.toString() }
-  }
+    }})
+    .catch(err => { return {
+      statusCode: 500,
+      body: Error(err)
+    }});
 }
 
 const s3PutObject = async (s3, params) => {

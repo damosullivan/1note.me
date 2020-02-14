@@ -12,7 +12,7 @@
     <title>OneNote Me</title>
     <meta name="description" content="A usable sharable OneNote link">
     <meta name="viewport" content="width=device-width, initial-scale=1">
-    <link rel="stylesheet" href="stylesheet.css">
+    <link rel="stylesheet" href="css/stylesheet.css">
 
 </head>
 
@@ -22,27 +22,29 @@
         <![endif]-->
 
     <div class="wrapper">
-        <div class="purple">
+        <div class="purple-header">
             <h1>OneNote Me</h1>
             <h2>Usable Sharable OneNote Links</h2>
         </div>
-        <div>
-            <form action="/.netlify/functions/new" method="POST">
+        <div class="form-space">
+            <form action="/.netlify/functions/new" method="POST" onsubmit=submitLink()>
                 <textarea id="link" name="link" rows="2" cols="80"></textarea>
-                <button>Submit</button>
+                <button>Shorten</button>
             </form>
         </div>
-        <div>
-            <!-- Target -->
-            <input id="foo" value="cmon">
-
-            <!-- Trigger -->
+        <div class="copy-space" >
+            <input id="foo" placeholder="https://1note.me" readonly />
             <button class="btn" data-clipboard-target="#foo">Copy</button>
         </div>
+        <div class="grow" ></div>
+        <div class="purple-footer">
+            <h2>by <a href="https://damien.ie">Damien</h2></p>
+        </div>
+
     </div>
 
-    <script src="clipboard.min.js"></script>
-    <script src="scripts.js" type="text/javascript" async defer></script>
+    <script src="scripts/clipboard.min.js"></script>
+    <script src="scripts/1noteme.js" type="text/javascript" async defer></script>
 
 </body>
 

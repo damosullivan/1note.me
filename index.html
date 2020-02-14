@@ -2,32 +2,48 @@
 <!--[if lt IE 7]>      <html class="no-js lt-ie9 lt-ie8 lt-ie7"> <![endif]-->
 <!--[if IE 7]>         <html class="no-js lt-ie9 lt-ie8"> <![endif]-->
 <!--[if IE 8]>         <html class="no-js lt-ie9"> <![endif]-->
-<!--[if gt IE 8]><!--> <html class="no-js"> <!--<![endif]-->
-    <head>
-        <meta charset="utf-8">
-        <meta http-equiv="X-UA-Compatible" content="IE=edge">
-        <title>1Note Me</title>
-        <meta name="description" content="A usable sharable OneNote link">
-        <meta name="viewport" content="width=device-width, initial-scale=1">
-        <link rel="stylesheet" href="">
-    </head>
-    <body>
-        <!--[if lt IE 7]>
+<!--[if gt IE 8]><!-->
+<html class="no-js">
+<!--<![endif]-->
+
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <title>OneNote Me</title>
+    <meta name="description" content="A usable sharable OneNote link">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" href="stylesheet.css">
+
+</head>
+
+<body>
+    <!--[if lt IE 7]>
             <p class="browsehappy">You are using an <strong>outdated</strong> browser. Please <a href="#">upgrade your browser</a> to improve your experience.</p>
         <![endif]-->
 
-        <div class="wrapper">
-
-            <h1>1Note Me</h1>
-            <h2>A usable sharable OneNote link</h2>
-            <div>
-                <form action="/.netlify/functions/new" method="POST">
-                    <textarea id="link" name="link" rows="2" cols="100"  ></textarea>
-                    <button>Submit</button>
-                </form>
-            </div>
+    <div class="wrapper">
+        <div class="purple">
+            <h1>OneNote Me</h1>
+            <h2>Usable Sharable OneNote Links</h2>
         </div>
-        
-        <script src="" async defer></script>
-    </body>
+        <div>
+            <form action="/.netlify/functions/new" method="POST">
+                <textarea id="link" name="link" rows="2" cols="80"></textarea>
+                <button>Submit</button>
+            </form>
+        </div>
+        <div>
+            <!-- Target -->
+            <input id="foo" value="cmon">
+
+            <!-- Trigger -->
+            <button class="btn" data-clipboard-target="#foo">Copy</button>
+        </div>
+    </div>
+
+    <script src="clipboard.min.js"></script>
+    <script src="scripts.js" type="text/javascript" async defer></script>
+
+</body>
+
 </html>

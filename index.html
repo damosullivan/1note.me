@@ -28,13 +28,14 @@
         </div>
         <div class="form-space">
             <form action="/.netlify/functions/new" method="POST" onsubmit=submitLink()>
-                <textarea id="link" name="link" rows="2" cols="80"></textarea>
+                <textarea id="link" name="link" rows="2" cols="80" placeholder="onenote:copy and paste your OneNote link in here"></textarea>
                 <button>Shorten</button>
             </form>
         </div>
         <div class="copy-space" >
-            <input id="foo" placeholder="https://1note.me" readonly />
+            <input id="foo" placeholder="https://1note.me" readonly value="this is just for testing" />
             <button class="btn" data-clipboard-target="#foo">Copy</button>
+            <p id="copied">Copied</p>
         </div>
         <div class="grow" ></div>
         <div class="purple-footer">

@@ -71,3 +71,8 @@ h2 {
 .copy-space, .form-space {
     margin-top: 30px;
 }
+
+#copied {
+    visibility: hidden;
+    color: green;
+}

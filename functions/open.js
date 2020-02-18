@@ -1,8 +1,9 @@
 const S3 = require('aws-sdk/clients/s3');
+const { AWS_ACCESS_KEY_ID_RW, AWS_SECRET_ACCESS_KEY_RW } = process.env;
 
 const s3 = new S3({
-  accessKeyId: "",
-  secretAccessKey: ""
+  accessKeyId: AWS_ACCESS_KEY_ID_RW,
+  secretAccessKey: AWS_SECRET_ACCESS_KEY_RW
 });
 
 exports.handler = async (event, context) => {

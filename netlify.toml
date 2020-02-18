@@ -11,7 +11,7 @@
   publish = "."
 
   # Default build command.
-  command = "cd ./functions/; npm install"
+  command = "sed -i s/<AWS_ACCESS_KEY_ID_RW>/${AWS_ACCESS_KEY_ID_RW}/g functions/.env && sed -i s/<AWS_SECRET_ACCESS_KEY_RW>/${AWS_SECRET_ACCESS_KEY_RW}/g functions/.env && cd ./functions/; npm install && node -p 'process.env'"
 
   # Directory with the serverless Lambda functions to deploy to AWS.
   functions = "./functions"

@@ -49,6 +49,11 @@ body {
     text-decoration: none;
 }
 
+.purple-footer h2 {
+    margin-top: 15px;
+    margin-bottom: 0;
+}
+
 h1 {
     /* margin-left: 50px; */
     text-align: center;

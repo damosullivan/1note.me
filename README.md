@@ -26,3 +26,5 @@ Report any issues through GitHub:
 
 - [New Issue](https://github.com/damosullivan/1note.me/issues/new)
 - [Current Issues](https://github.com/damosullivan/1note.me/issues)
+
+[![README.md Footer](./images/readme-footer.png)](https://damien.ie/)

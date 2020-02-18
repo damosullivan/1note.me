@@ -11,7 +11,7 @@
   publish = "."
 
   # Default build command.
-  command = "cd ./functions/open/; npm install; cd ../new; npm install"
+  command = "cd ./functions/; npm install"
 
   # Directory with the serverless Lambda functions to deploy to AWS.
   functions = "./functions"

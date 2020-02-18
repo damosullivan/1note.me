@@ -52,6 +52,7 @@ body {
     background: purple;
     color: white;
     text-align: right;
+    position: relative;
 }
 
 .purple-footer a, .purple-footer a:visited, .purple-footer a:hover {
@@ -59,9 +60,11 @@ body {
     text-decoration: underline;
 }
 
-.purple-footer h2 {
-    margin-top: 15px;
-    margin-bottom: 0;
+.purple-footer p {
+    position: absolute;
+    bottom: 0;
+    right: 0;
+    margin: 20px;
 }
 
 h1 {

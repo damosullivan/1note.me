@@ -30,15 +30,18 @@
         </div>
         <p class="body">Get an easy to use OneNote link that can be shared through messaging apps and will open with OneNote Desktop.</p>
         <div class="form-space">
-            <form action="/.netlify/functions/new" method="POST" onsubmit=submitLink()>
+            <form action="/.netlify/functions/new" method="POST" onsubmit="return false" >
                 <textarea id="link" name="link" rows="2" cols="80" placeholder="onenote:copy and paste your OneNote link in here
-OneNote's multiline copy links are also accepted"></textarea><!-- Textareas are weird. Please ignore th formatting of this line -->
-                <button>Get</button>
+OneNote's multiline copy links are also accepted" onfocus=clearError()></textarea><!-- Textareas are weird. Please ignore th formatting of this line -->
+                <button onclick=submitLink() >Generate</button>
             </form>
+            <p id="errored">this is for errors</p>
+            <a id="succeeded" target="_blank" >this si for urls</a>
+
         </div>
         <div class="copy-space" >
-            <input id="foo" placeholder="https://1note.me?l=123456" readonly />
-            <button class="btn" data-clipboard-target="#foo">Copy</button>
+            <input id="new-link" placeholder="https://1note.me?l=123456" readonly />
+            <button class="btn" data-clipboard-target="#new-link">Copy</button>
             <p id="copied">Copied</p>
         </div>
         <div class="grow" ></div>

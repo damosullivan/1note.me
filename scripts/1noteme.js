@@ -1,7 +1,7 @@
 document.addEventListener("DOMContentLoaded", () => {
     var clipboard = new ClipboardJS('.btn');
 
-    clipboard.on('success', function(e) {
+    clipboard.on('success', function (e) {
         const copied = document.getElementById("copied");
         copied.style.visibility = "visible";
         setTimeout(() => {
@@ -11,14 +11,40 @@ document.addEventListener("DOMContentLoaded", () => {
     });
 });
 
-const submitLink = (e) => {
-    // disable form submit
+const submitLink = async () => {
 
-    const link_input = document.getElementById("links");
+    document.getElementById("succeeded").style.visibility = "hidden"
 
-    alert("submitted", e);
+    const link = document.getElementById("link").value;
+    const data = "link=" + encodeURIComponent(link); // just like a HTTP form
+    fetch(window.location.href.split('?')[0] + ".netlify/functions/new", {
+        method: "post",
+        body: data
+    })
+        .then(async res => {
+            const data = await res.text();
+            if (res.status === 200) {
+                return data;
+            }
+            throw new Error(data);
+        })
+        .then(data => {
+            const new_link = document.getElementById("new-link")
+            const succeeded = document.getElementById("succeeded")
+            new_link.value = data;
+            succeeded.textContent = data;
+            succeeded.href = data;
+            succeeded.style.visibility = "visible";
+        })
+        .catch(err => {
+            const errored = document.getElementById("errored");
+            errored.textContent = err;
+            errored.style.visibility = "visible";
+        });
+
+    return false;
 }
 
-const copied = () => {
-
+const clearError = () => {
+    document.getElementById("errored").style.visibility = "hidden";
 }

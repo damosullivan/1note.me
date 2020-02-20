@@ -96,6 +96,16 @@ h2 {
     color: green;
 }
 
+#errored {
+    visibility: hidden;
+    color: darkred;
+}
+
+#succeeded {
+    visibility: hidden;
+    color: green;
+}
+
 button {
     border-color: lightblue;
     background: lightcyan;

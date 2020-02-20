@@ -12,7 +12,7 @@ This was a huge pain point in my previous work place. We used OneNote daily, and
 
 ## Why not use a link shortner
 
-Link shortners I tries did not support the `onenote:` prefix and would not open OneNote.
+Link shortners I tried did not support the `onenote:` prefix and would not open in OneNote Desktop.
 
 ## How is it build
 

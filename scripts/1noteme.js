@@ -29,9 +29,9 @@ const submitLink = async () => {
             throw new Error(data);
         })
         .then(data => {
-            const new_link = document.getElementById("new-link")
+            document.getElementById("new-link").value = data;
+            document.getElementById("copy-button").disabled = false;
             const succeeded = document.getElementById("succeeded")
-            new_link.value = data;
             succeeded.textContent = data;
             succeeded.href = data;
             succeeded.style.visibility = "visible";

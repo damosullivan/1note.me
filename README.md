@@ -24,6 +24,18 @@ Link shortners I tried did not support the `onenote:` prefix and would not open 
 - [Netlify Functions](https://www.netlify.com/products/functions/) to serve as a *backend server* (serverless)
 - [AWS S3](https://aws.amazon.com/s3/) as a [key-value store](https://en.wikipedia.org/wiki/Key-value_database). Generate an id (using [shortid](https://www.npmjs.com/package/shortid)), store the link in S3.
 
+## How to run locally
+
+Install [Netlify Dev](https://www.netlify.com/products/dev/#how-it-works) and configure it. Then you can run the following command:
+
+```powershell
+netlify dev --functions=.\functions
+```
+
+You will also need to set the following environment variables:
+- `AWS_ACCESS_KEY_ID_RW` - the AWS access key for S3
+- `AWS_SECRET_ACCESS_KEY_RW` - the access key secret
+
 ## Report issues
 
 Report any issues through GitHub:

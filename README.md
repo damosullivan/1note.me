@@ -6,6 +6,10 @@
 
 Get an easy to use OneNote link that can be shared through messaging apps and will open with OneNote Desktop.
 
+## Usage
+
+Check out this video to the simplest use case: https://streamable.com/v4snk
+
 ## Why build it
 
 This was a huge pain point in my previous work place. We used OneNote daily, and there was no easy way to share the OneNote links in Slack. **Now there is**.

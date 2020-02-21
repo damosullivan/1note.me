@@ -31,7 +31,7 @@
         <p class="body">Get an easy to use OneNote link that can be shared through messaging apps and will open with OneNote Desktop.</p>
         <div class="form-space">
             <form action="/.netlify/functions/new" method="POST" onsubmit="return false" >
-                <textarea id="link" name="link" rows="2" cols="80" placeholder="onenote:copy and paste your OneNote link in here
+                <textarea id="link" wrap="off" name="link" rows="2" cols="80" placeholder="onenote:copy and paste your OneNote link in here
 OneNote's multiline copy links are also accepted" onfocus=clearError()></textarea><!-- Textareas are weird. Please ignore th formatting of this line -->
                 <button onclick=submitLink() >Generate</button>
             </form>

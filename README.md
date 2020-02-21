@@ -14,6 +14,10 @@ This was a huge pain point in my previous work place. We used OneNote daily, and
 
 Link shortners I tried did not support the `onenote:` prefix and would not open in OneNote Desktop.
 
+## How to use it
+
+<div style="width:100%;height:0px;position:relative;padding-bottom:56.250%;"><iframe src="https://streamable.com/s/v4snk/sbmxi" frameborder="0" width="100%" height="100%" allowfullscreen style="width:100%;height:100%;position:absolute;left:0px;top:0px;overflow:hidden;"></iframe></div>
+
 ## How is it build
 
 - [Netlify](https://www.netlify.com/) to serve `html`, `css`, and `js` files. I opted for pure `js` and `css` to keep things simple.

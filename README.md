@@ -33,6 +33,7 @@ netlify dev --functions=.\functions
 ```
 
 You will also need to set the following environment variables:
+
 - `AWS_ACCESS_KEY_ID_RW` - the AWS access key for S3
 - `AWS_SECRET_ACCESS_KEY_RW` - the access key secret
 

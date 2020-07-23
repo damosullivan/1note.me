@@ -1,4 +1,4 @@
-[![README.md Banner](./images/readme-banner.png)](https://1note.me/)
+[![README.md Banner](https://raw.githubusercontent.com/damosullivan/1note.me/master/images/readme-banner.png)](https://1note.me/)
 
 [![Netlify Status](https://api.netlify.com/api/v1/badges/255f4fa4-c52e-4dc8-b073-c628c01945b0/deploy-status)](https://app.netlify.com/sites/1noteme/deploys)
 
@@ -44,4 +44,4 @@ Report any issues through GitHub:
 - [New Issue](https://github.com/damosullivan/1note.me/issues/new)
 - [Current Issues](https://github.com/damosullivan/1note.me/issues)
 
-[![README.md Footer](./images/readme-footer.png)](https://damien.ie/)
+[![README.md Footer](https://raw.githubusercontent.com/damosullivan/1note.me/master/images/readme-footer.png)](https://damien.ie/)

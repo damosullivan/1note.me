@@ -33,12 +33,31 @@ exports.handler = async (event, context) => {
       console.log('Raw link from S3:', link);
       console.log('Decoded link:', decodedLink);
       
+      // Use JavaScript redirect instead of HTTP redirect
+      const html = `
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Redirecting to OneNote...</title>
+    <meta charset="utf-8">
+</head>
+<body>
+    <p>Redirecting to OneNote...</p>
+    <script>
+        window.location.href = "${decodedLink.replace(/"/g, '\\"')}";
+    </script>
+    <noscript>
+        <p>Click here to open OneNote: <a href="${decodedLink}">${decodedLink}</a></p>
+    </noscript>
+</body>
+</html>`;
+      
       return {
-        statusCode: 302,
+        statusCode: 200,
         headers: {
-          Location: decodedLink
+          'Content-Type': 'text/html'
         },
-        body: decodedLink
+        body: html
       }
     })
     .catch(err => { return {

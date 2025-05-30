@@ -33,21 +33,69 @@ exports.handler = async (event, context) => {
       console.log('Raw link from S3:', link);
       console.log('Decoded link:', decodedLink);
       
-      // Use JavaScript redirect instead of HTTP redirect
+      // Use JavaScript redirect with error handling
       const html = `
 <!DOCTYPE html>
 <html>
 <head>
-    <title>Redirecting to OneNote...</title>
+    <title>Opening OneNote...</title>
     <meta charset="utf-8">
+    <style>
+        body { font-family: Arial, sans-serif; margin: 40px; }
+        .error { color: #d73027; background: #f8f8f8; padding: 20px; border-radius: 5px; margin: 20px 0; }
+        .success { color: #1a9850; }
+        .loading { color: #666; }
+    </style>
 </head>
 <body>
-    <p>Redirecting to OneNote...</p>
+    <h2>Opening OneNote...</h2>
+    <p id="status" class="loading">Attempting to open OneNote Desktop...</p>
+    
+    <div id="error-message" class="error" style="display: none;">
+        <h3>⚠️ OneNote Desktop Not Found</h3>
+        <p>It looks like OneNote Desktop isn't installed on this device, or the <code>onenote:</code> protocol isn't registered.</p>
+        <p><strong>To fix this:</strong></p>
+        <ul>
+            <li>Install <a href="https://www.microsoft.com/en-us/microsoft-365/onenote/digital-note-taking-app" target="_blank">OneNote Desktop</a></li>
+            <li>Or try the manual link below</li>
+        </ul>
+        <p><strong>Manual link:</strong> <code>${decodedLink}</code></p>
+        <p><a href="${decodedLink}">Click here to try opening OneNote manually</a></p>
+    </div>
+
     <script>
-        window.location.href = "${decodedLink.replace(/"/g, '\\"')}";
+        function attemptRedirect() {
+            try {
+                // Set a timer to show error message if redirect doesn't work
+                const timer = setTimeout(() => {
+                    document.getElementById('status').style.display = 'none';
+                    document.getElementById('error-message').style.display = 'block';
+                }, 2000);
+                
+                // Try to redirect
+                window.location.href = "${decodedLink.replace(/"/g, '\\"')}";
+                
+                // If we get here quickly, the redirect might have failed immediately
+                setTimeout(() => {
+                    document.getElementById('status').textContent = 'If OneNote didn\\'t open, see the message below...';
+                    document.getElementById('status').className = 'loading';
+                }, 500);
+                
+            } catch (error) {
+                console.error('Redirect failed:', error);
+                document.getElementById('status').style.display = 'none';
+                document.getElementById('error-message').style.display = 'block';
+            }
+        }
+        
+        // Start the redirect attempt
+        attemptRedirect();
     </script>
+    
     <noscript>
-        <p>Click here to open OneNote: <a href="${decodedLink}">${decodedLink}</a></p>
+        <div class="error">
+            <p>JavaScript is disabled. Click here to open OneNote: <a href="${decodedLink}">${decodedLink}</a></p>
+        </div>
     </noscript>
 </body>
 </html>`;

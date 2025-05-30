@@ -17,3 +17,9 @@
   functions = "./functions"
 
 
+[[redirects]]
+  from = "/"
+  to = "/.netlify/functions/open"
+  query = {l = ":l"}
+  status = 200
+  force = true

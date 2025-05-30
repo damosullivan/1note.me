@@ -30,17 +30,15 @@ exports.handler = async (event, context) => {
       const link = object.Body.toString();
       const decodedLink = decodeURIComponent(link);
       
-      // Debug logging
       console.log('Raw link from S3:', link);
       console.log('Decoded link:', decodedLink);
       
-      // For debugging, return the link as text instead of redirecting
       return {
-        statusCode: 200,
+        statusCode: 302,
         headers: {
-          'Content-Type': 'text/plain'
+          Location: decodedLink
         },
-        body: `Raw S3 data: ${link}\nDecoded: ${decodedLink}\nLength: ${link.length}`
+        body: decodedLink
       }
     })
     .catch(err => { return {

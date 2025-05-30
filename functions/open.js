@@ -7,12 +7,16 @@ const s3 = new S3({
 });
 
 exports.handler = async (event, context) => {
-  const key = event.queryStringParameters.l
+  // Debug logging
+  console.log('Event:', JSON.stringify(event, null, 2));
+  console.log('Query parameters:', event.queryStringParameters);
+  
+  const key = event.queryStringParameters?.l
 
   if (!key) {
     return {
       statusCode: 400,
-      body: 'no link parameter `l` provided'
+      body: `no link parameter 'l' provided. Available params: ${JSON.stringify(event.queryStringParameters)}`
     }
   }
 

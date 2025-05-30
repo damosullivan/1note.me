@@ -17,7 +17,3 @@
   functions = "./functions"
 
 
-[[redirects]]
-  from = "/?l=:id"
-  to = "/.netlify/functions/open?l=:id"
-  status = 200
